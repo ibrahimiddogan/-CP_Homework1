@@ -1,0 +1,26 @@
+type Person = record {
+    name:text;
+    lastname:text;
+    age:nat32;
+};
+type PersonErrors =variant{
+    SmallAge;
+};
+
+type Result = 
+    variant {
+        Ok;
+        Err: PersonErrors;
+    };
+type Activities= variant{
+     stayhome;
+    library;
+    park;
+    shopping;
+};
+
+service : {
+    "create_person":(text,text,nat32) -> (Result);
+    "get_events_from_api":() -> (float64);
+    "suggest_activity":() -> (Activities)
+};
